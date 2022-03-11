@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="600" height="600"></canvas>
+    <script>
+      let canvas = document.querySelector("canvas")
+      let context = canvas.getContext("2d")
+
+      //   context.fillStyle = "red"
+      //   context.fillRect(100, 100, canvas.width, canvas.height)
+
+      context.lineWidth = 4
+      context.beginPath()
+      context.rect(100, 100, 400, 400)
+      context.stroke()
+
+      context.beginPath()
+      context.arc(300, 300, 150, 0, Math.PI * 2)
+      context.stroke()
+
+      //   some coding examples
+
+      let x = 5
+      let year = 2045
+      let nextYear = year + 1
+
+      let dinner = "spaghetti"
+      let sentence = "I'm eating " + dinner + "."
+
+      function saySomething(param) {
+        console.log(param)
+      }
+
+      saySomething(sentence)
+
+      function add(a, b) {
+        return a + b
+      }
+
+      let sum = add(5, 10)
+      console.log(sum)
+
+      let multiply = (a, b) => {
+        return a * b
+      }
+      console.log(multiply(5, 10))
+
+      // example arc
+
+      //   const canvas = document.querySelector("canvas")
+      //   let ctx = canvas.getContext("2d")
+      //   var x = canvas.width / 2
+      //   var y = canvas.height / 2
+      //   var radius = 100
+      //   var startAngle = 0
+      //   var endAngle = Math.PI * 2
+      //   var counterClockwise = false
+      //   ctx.beginPath()
+      //   ctx.arc(x, y, radius, startAngle, endAngle, counterClockwise)
+      //   ctx.stroke()
+    </script>
+  </body>
+</html>
