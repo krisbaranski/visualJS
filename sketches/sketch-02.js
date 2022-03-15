@@ -4,6 +4,10 @@ const settings = {
   dimensions: [1080, 1080],
 }
 
+const degreesToRadians = degrees => {
+  return (degrees * Math.PI) / 180
+}
+
 const sketch = () => {
   return ({ context, width, height }) => {
     context.fillStyle = "white"
@@ -11,19 +15,32 @@ const sketch = () => {
 
     context.fillStyle = "black"
 
-    const x = width * 0.5
-    const y = height * 0.5
-    const w = width * 0.3
-    const h = height * 0.3
+    const cx = width * 0.5
+    const cy = height * 0.5
 
-    context.save()
-    context.translate(x, y)
-    context.rotate(0.3)
+    const w = width * 0.01
+    const h = height * 0.1
+    let x, y
 
-    context.beginPath()
-    context.rect(-w * 0.5, -h * 0.5, w, h)
-    context.fill()
-    context.restore()
+    const num = 12
+    const radius = width * 0.3
+
+    for (let i = 0; i < num; i++) {
+      const slice = degreesToRadians(360 / num)
+      const angle = slice * i
+
+      x = cx + Math.sin(angle) * radius
+      y = cy + Math.cos(angle) * radius
+
+      context.save()
+      context.translate(x, y)
+      context.rotate(-angle)
+
+      context.beginPath()
+      context.rect(-w * 0.5, -h * 0.5, w, h)
+      context.fill()
+      context.restore()
+    }
 
     // context.translate(100, 400)
 
